@@ -4,10 +4,10 @@ RUN apt-get update -qq && apt-get -y install apache2-utils
 ENV NODE_ROOT /var/www/api-gateway
 WORKDIR $NODE_ROOT
 RUN mkdir log
-COPY app.conf /tmp/app.nginxc
+COPY app.conf /tmp/app.nginx
 RUN envsubst '$NODE_ROOT' < /tmp/app.nginx > /etc/nginx/conf.d/default.conf
-COPY server.crt /etc/nginx
-COPY server.key /etc/nginx
+COPY server.crt /tmp/app.nginxc
+COPY server.key /tmp/app.nginxc
 
 EXPOSE 80
 
