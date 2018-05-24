@@ -6,8 +6,8 @@ WORKDIR $NODE_ROOT
 RUN mkdir log
 COPY app.conf /tmp/app.nginx
 RUN envsubst '$NODE_ROOT' < /tmp/app.nginx > /etc/nginx/conf.d/default.conf
-COPY server.crt /etc/nginx/
-COPY server.key /etc/nginx/
+COPY server.crt /etc/ssl/
+COPY server.key /etc/ssl/
 
 EXPOSE 80
 
