@@ -1,0 +1,6 @@
+version: '2'
+services:
+  previsora_proxy:
+    build: .
+    ports:
+      - 80:80
